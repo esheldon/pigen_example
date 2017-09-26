@@ -7,5 +7,6 @@ struct vec {
 
 
 double vec_dot(const struct vec* v1, const struct vec* v2);
+void vec_print(const struct vec* self, const char *extra);
 
 #endif

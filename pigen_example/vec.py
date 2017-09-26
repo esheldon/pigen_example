@@ -30,6 +30,12 @@ class Vec(object):
         """
         return self._data
 
+    def print(self, extra=""):
+        """
+        print self
+        """
+        _pywrap.vec_print(self._data, extra)
+
 _vec_dtype=[
     ('a','f8'),
     ('b','f8'),

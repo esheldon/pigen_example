@@ -4,6 +4,9 @@ def test():
     v1 = vec.Vec(1.0, 2.0)
     v2 = vec.Vec(2.0, 3.0)
 
+    v1.print("v1")
+    v2.print("v2")
+
     dot=vec.vec_dot(v1, v2)
     assert dot==8.0
 
@@ -19,3 +22,4 @@ def test():
         print("did not get error as expected")
     except TypeError:
         print("got error as expected")
+
