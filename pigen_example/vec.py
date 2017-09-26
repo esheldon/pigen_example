@@ -34,10 +34,3 @@ _vec_dtype=[
     ('a','f8'),
     ('b','f8'),
 ]
-
-def test():
-    v1 = Vec(1.0, 2.0)
-    v2 = Vec(2.0, 3.0)
-
-    dot=vec_dot(v1, v2)
-    assert dot==8.0
