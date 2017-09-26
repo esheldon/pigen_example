@@ -6,6 +6,6 @@ struct vec {
 };
 
 
-double vec_dot(const struct vec* p1, const struct vec* p2);
+double vec_dot(const struct vec* v1, const struct vec* v2);
 
 #endif

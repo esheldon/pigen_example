@@ -4,5 +4,5 @@ includes:
     - '#include "vec.h"'
 
 functions:
-    - def: double vec_dot(const struct vec* p1, const struct vec* p2)
+    - def: double vec_dot(const struct vec* v1, const struct vec* v2)
       doc: dot product of two vectors

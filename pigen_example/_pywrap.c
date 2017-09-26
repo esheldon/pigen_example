@@ -15,22 +15,32 @@ PyObject* Py_pywrap_vec_dot(PyObject* self, PyObject* args)
 
     double Py_pywrap_vec_dot_retval;
 
-    PyObject* p1_wrap;
-    PyObject* p2_wrap;
+    PyObject* v1_wrap;
+    PyObject* v2_wrap;
 
-    const struct vec* p1;
-    const struct vec* p2;
+    const struct vec* v1;
+    const struct vec* v2;
 
 
     if (!PyArg_ParseTuple(args, (char*)"OO", 
-                          &p1_wrap, &p2_wrap)) {
+                          &v1_wrap, &v2_wrap)) {
         return NULL;
     }
 
-    p1 = (const struct vec*) PyArray_DATA( (PyArrayObject*) p1_wrap );
-    p2 = (const struct vec*) PyArray_DATA( (PyArrayObject*) p2_wrap );
+    if ( !PyArray_Check(v1_wrap) ) {
+        PyErr_SetString(PyExc_TypeError, "argument v1 must be an array");
+        return NULL;
+    }
+    v1 = (const struct vec*) PyArray_DATA( (PyArrayObject*) v1_wrap );
 
-    Py_pywrap_vec_dot_retval = vec_dot( p1, p2 );
+    if ( !PyArray_Check(v2_wrap) ) {
+        PyErr_SetString(PyExc_TypeError, "argument v2 must be an array");
+        return NULL;
+    }
+    v2 = (const struct vec*) PyArray_DATA( (PyArrayObject*) v2_wrap );
+
+
+    Py_pywrap_vec_dot_retval = vec_dot( v1, v2 );
 
     return Py_BuildValue("d", Py_pywrap_vec_dot_retval);
 

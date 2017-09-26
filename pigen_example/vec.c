@@ -1,6 +1,6 @@
 #include "vec.h"
 
-double vec_dot(const struct vec* p1, const struct vec* p2)
+double vec_dot(const struct vec* v1, const struct vec* v2)
 {
-    return p1->a*p2->a + p1->b*p2->b;
+    return v1->a*v2->a + v1->b*v2->b;
 }
