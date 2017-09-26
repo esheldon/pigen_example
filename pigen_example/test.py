@@ -8,5 +8,14 @@ def test():
     assert dot==8.0
 
     # expect error
-    #dot=vec.vec_dot(v1, "blah")
-    dot=vec._pywrap.vec_dot(v1.get_data(), "blah")
+    try:
+        dot=vec.vec_dot(v1, "blah")
+        print("did not get error as expected")
+    except TypeError:
+        print("got error as expected")
+
+    try:
+        dot=vec._pywrap.vec_dot(v1.get_data(), "blah")
+        print("did not get error as expected")
+    except TypeError:
+        print("got error as expected")

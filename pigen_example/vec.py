@@ -5,8 +5,11 @@ def vec_dot(v1, v2):
     """
     Dot product of two vectors
     """
-    assert isinstance(v1, Vec)
-    assert isinstance(v2, Vec)
+    if not isinstance(v1, Vec):
+        raise TypeError("v1 must be a Vec, got %s" % str(type(v1)))
+    if not isinstance(v2, Vec):
+        raise TypeError("v2 must be a Vec, got %s" % str(type(v2)))
+
     return _pywrap.vec_dot(
         v1.get_data(),
         v2.get_data(),

@@ -2,6 +2,15 @@ import distutils
 from distutils.core import setup, Extension
 import numpy
 
+import pigen
+
+# one could make the wrapper using
+# pigen pigen_example/pywrap.yaml pigen_example/_pywrap.c
+# here we will generate on the fly
+
+pigen.make_wrapper('pigen_example/pywrap.yaml',
+                   'pigen_example/_pywrap.c')
+
 sources = [
     'pigen_example/vec.c',
     'pigen_example/_pywrap.c',
